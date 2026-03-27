@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #050505;
+  --color-secondary: #0A0F0A;
+  --color-accent-primary: #1DB954;
+  --color-accent-secondary: #A8FF3E;
+  --color-accent-warning: #F5A623;
+  
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-primary text-white/60 font-body antialiased selection:bg-accent-primary/30 selection:text-white overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-white/90 font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(168, 255, 62, 0.4);
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-[#A8FF3E];
+  }
+  
+  .glass-panel {
+    @apply bg-[rgba(5,5,5,0.75)] backdrop-blur-md border border-white/10;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
